@@ -1,4 +1,4 @@
 package com.xiaoshu.admin.controller;
 
-public class TestController {
+public class Test1Controller {
 }
