@@ -112,7 +112,7 @@ public class AsaCaichanController {
     @SysLog("删除资产数据(多个)")
     public ResponseEntity deleteSome(@RequestBody List<AsaCaichan> asacaichan) {
         if (asacaichan == null || asacaichan.size() == 0) {
-            return ResponseEntity.failure("请选择要删除的资产");
+            return ResponseEntity.failure("请选择要删除的资产，资产");
         }
         for (AsaCaichan a : asacaichan) {
             asacaichanService.removeById(a.getId());
