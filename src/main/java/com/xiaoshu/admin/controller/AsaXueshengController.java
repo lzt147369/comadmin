@@ -104,7 +104,7 @@ public class AsaXueshengController {
             return ResponseEntity.failure("班级不能为空");
         }
         if (StringUtils.isBlank(asaxuesheng.getPhone())) {
-            return ResponseEntity.failure("电话不能为空");
+            return ResponseEntity.failure("电话不能为空哦");
         }
         if (StringUtils.isBlank(asaxuesheng.getDorm())) {
             return ResponseEntity.failure("宿舍不能为空");
