@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <meta charset="utf-8">
+    <title>学生添加--后台管理</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" th:href="@{/static/layui/css/layui.css}"
+          media="all"/>
+    <style type="text/css">
+        .layui-form-item .layui-inline {
+            width: 33.333%;
+            float: left;
+            margin-right: 0;
+        }
+
+        @media ( max-width: 1240px) {
+            .layui-form-item .layui-inline {
+                width: 100%;
+                float: none;
+            }
+        }
+
+        .layui-form-item .role-box {
+            position: relative;
+        }
+
+        .layui-form-item .role-box .jq-role-inline {
+            height: 100%;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body class="childrenBody">
+<form class="layui-form" style="width:80%;margin-top: 2%;">
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">姓名</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input" name="xingming" placeholder="姓名">
+            </div>
+        </div>
+        <div class="layui-inline">
+            <label class="layui-form-label">学号</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input" name="xuehao" placeholder="学号">
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+
+        <div class="layui-inline">
+            <label class="layui-form-label">班级</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input" name="banji"
+                       placeholder="班级">
+            </div>
+        </div>
+        <div class="layui-inline">
+            <label class="layui-form-label">宿舍</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input" name="sushe"
+                       placeholder="宿舍">
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+
+        <div class="layui-inline">
+            <label class="layui-form-label">电话</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input" name="dianhua" placeholder="电话">
+            </div>
+        </div>
+        <div class="layui-inline">
+            <label class="layui-form-label">货物名称</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input" name="huowu" placeholder="货物名称">
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+
+        <div class="layui-inline">
+            <label class="layui-form-label">处理人</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input" name="chuliren" placeholder="处理人">
+            </div>
+        </div>
+        <div class="layui-inline">
+            <label class="layui-form-label">备注</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input" name="beizhu" placeholder="备注">
+            </div>
+        </div>
+    </div>
+
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">货物进出</label>
+        <div class="layui-input-block role-box">
+            <div class="jq-role-inline">
+                <fieldset class="layui-elem-field">
+                    <legend>选择状态</legend>
+                    <div class="layui-field-box">
+                        <div class="layui-form-item">
+                            <div class="layui-input-block">
+                                <input type="radio" name="churu" value="1" title="物品出入" checked>
+                                <input type="radio" name="churu" value="2" title="物品进入">
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+
+    <shiro:hasPermission name="sys:asahuowu:add">
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit="" lay-filter="addUser">立即提交</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+        </div>
+    </shiro:hasPermission>
+</form>
+<script type="text/javascript" th:src="@{/static/layui/layui.js}"></script>
+<script type="text/javascript"
+        th:src="@{/static/admin/js/asahuowu/asahuowuAdd.js}"></script>
+</body>
+</html>

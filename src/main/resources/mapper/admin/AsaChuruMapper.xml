@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiaoshu.admin.mapper.AsaChuruMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.xiaoshu.admin.entity.AsaChuru">
+        <id column="id" property="id"/>
+        <result column="laifang_name" property="laifangName"/>
+        <result column="laifang_shijian" property="laifangShijian"/>
+        <result column="laifang_yuanyin" property="laifangYuanyin"/>
+        <result column="laifang_dianhua" property="laifangDianhua"/>
+        <result column="beifang_name" property="beifangName"/>
+        <result column="beifang_sushehao" property="beifangSushehao"/>
+        <result column="beifang_banji" property="beifangBanji"/>
+        <result column="beifang_dianhua" property="beifangDianhua"/>
+        <result column="likeishijian" property="likeishijian"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, laifang_name, laifang_shijian, laifang_yuanyin, laifang_dianhua, beifang_name, beifang_sushehao,
+        beifang_banji, beifang_dianhua, likeishijian
+    </sql>
+
+
+    <select id="selectProductById" resultMap="BaseResultMap" parameterType="java.lang.String">
+        SELECT
+        a.id,
+        a.laifang_name,
+        a.laifang_shijian,
+        a.laifang_yuanyin,
+        a.laifang_dianhua,
+        a.beifang_name,
+        a.beifang_sushehao,
+        a.beifang_banji,
+        a.beifang_dianhua,
+        a.likeishijian
+
+        from
+        asa_churu a
+        where
+        <if test="id != nill and id !=''">
+            a.id=#{id}
+        </if>
+    </select>
+
+</mapper>

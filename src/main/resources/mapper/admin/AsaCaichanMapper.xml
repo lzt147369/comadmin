@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiaoshu.admin.mapper.AsaCaichanMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.xiaoshu.admin.entity.AsaCaichan">
+        <id column="id" property="id"/>
+        <result column="xuesheng_id" property="xueshengId"/>
+        <result column="personal_name" property="personalName"/>
+        <result column="remark" property="remark"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, xuesheng_id, personal_name, remark
+    </sql>
+
+    <select id="chaxun" resultMap="BaseResultMap" parameterType="java.lang.String">
+        SELECT
+        a.id,
+        a.xuesheng_id,
+        a.personal_name,
+        a.remark
+
+        from
+        asa_caichan a
+        where
+        <if test="id != null and id !=''">
+            a.xuesheng_id=#{id}
+        </if>
+    </select>
+
+
+    <select id="selectProductById" resultMap="BaseResultMap" parameterType="java.lang.String">
+        SELECT
+        a.id,
+        a.xuesheng_id,
+        a.personal_name,
+        a.remark
+
+        from
+        asa_caichan a
+        where
+        <if test="id != nill and id !=''">
+            a.id=#{id}
+        </if>
+    </select>
+
+
+</mapper>

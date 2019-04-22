@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiaoshu.admin.mapper.AsaXueshengMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.xiaoshu.admin.entity.AsaXuesheng">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="sno" property="sno"/>
+        <result column="banji" property="banji"/>
+        <result column="phone" property="phone"/>
+        <result column="dorm" property="dorm"/>
+        <result column="personal_id" property="personalId"/>
+        <result column="state" property="state"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, name, sno, banji, phone, dorm, personal_id, state
+    </sql>
+
+    <select id="selectProductById" resultMap="BaseResultMap" parameterType="java.lang.String">
+        SELECT
+        a.id,
+        a.name,
+        a.sno,
+        a.banji,
+        a.phone,
+        a.dorm,
+        a.personal_id,
+        a.state
+
+        from
+        asa_xuesheng a
+        where
+        <if test="id != nill and id !=''">
+            a.id=#{id}
+        </if>
+    </select>
+
+</mapper>

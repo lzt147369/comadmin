@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiaoshu.admin.mapper.AsaJiaofaiMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.xiaoshu.admin.entity.AsaJiaofai">
+        <id column="id" property="id"/>
+        <result column="sushehao" property="sushehao"/>
+        <result column="jiaofaileixing" property="jiaofaileixing"/>
+        <result column="jiaofaijine" property="jiaofaijine"/>
+        <result column="jiaofaishijian" property="jiaofaishijian"/>
+        <result column="jiaofairen" property="jiaofairen"/>
+        <result column="chuliren" property="chuliren"/>
+        <result column="beizhu" property="beizhu"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, sushehao, jiaofaileixing, jiaofaijine, jiaofaishijian, jiaofairen, chuliren, beizhu
+    </sql>
+
+    <select id="selectProductById" resultMap="BaseResultMap" parameterType="java.lang.String">
+        SELECT
+        a.id,
+        a.sushehao,
+        a.jiaofaileixing,
+        a.jiaofaijine,
+        a.jiaofaishijian,
+        a.jiaofairen,
+        a.chuliren,
+        a.beizhu
+
+        from
+        asa_jiaofai a
+        where
+        <if test="id != nill and id !=''">
+            a.id=#{id}
+        </if>
+    </select>
+
+</mapper>
