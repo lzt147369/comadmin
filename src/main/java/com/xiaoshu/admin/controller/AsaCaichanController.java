@@ -30,7 +30,7 @@ import com.xiaoshu.common.util.ResponseEntity;
 
 /**
  * <p>
- * 前端控制器
+ * 前端控制器 hello
  * </p>
  *
  * @author shen-ke
